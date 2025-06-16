@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+python-dotenv
+beautifulsoup4
+requests
+lxml
+jinja2
+transformers
+torch # or tensorflow, depending on your transformers backend. Using torch here.
+python-multipart # New dependency for file uploads
+
+

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalized Website Review for {{ company_name }}</title>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+        table {
+            border-collapse: collapse;
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+            width: 100%;
+        }
+        td {
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            background-color: #2c3e50;
+            color: #ffffff;
+            padding: 25px 30px;
+            text-align: center;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 28px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+        .content {
+            padding: 30px;
+            color: #333333;
+            line-height: 1.6;
+        }
+        .content p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        .content ul {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .content ul li {
+            background-color: #ecf0f1;
+            padding: 12px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            font-size: 15px;
+            line-height: 1.4;
+            display: flex;
+            align-items: flex-start;
+        }
+        .content ul li:before {
+            content: "✨"; /* Or any other suitable emoji/icon */
+            margin-right: 10px;
+            font-size: 18px;
+            line-height: 1; /* Align emoji with text */
+            flex-shrink: 0;
+            padding-top: 2px; /* Small adjustment for vertical alignment */
+        }
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .button {
+            display: inline-block;
+            background-color: #3498db;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 14px 28px;
+            border-radius: 8px;
+            font-size: 17px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+        .footer {
+            background-color: #ecf0f1;
+            padding: 20px 30px;
+            text-align: center;
+            color: #7f8c8d;
+            font-size: 13px;
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+        .footer p {
+            margin: 5px 0;
+        }
+        .signature {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        /* Responsive adjustments */
+        @media only screen and (max-width: 620px) {
+            .container {
+                width: 100% !important;
+                margin: 0 !important;
+                border-radius: 0 !important;
+                box-shadow: none !important;
+            }
+            .header, .content, .footer {
+                padding: 20px !important;
+            }
+            .header h1 {
+                font-size: 24px !important;
+            }
+            .content p, .content ul li {
+                font-size: 14px !important;
+            }
+            .button {
+                padding: 12px 24px !important;
+                font-size: 15px !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Personalized Insights for {{ company_name }}</h1>
+        </div>
+        <div class="content">
+            <p>Hi {{ recipient_name or "there" }},</p>
+
+            <p>I hope this email finds you well. I was recently browsing your website for **{{ company_name }}** and was genuinely impressed by your dedication to {{ business_summary | default("your clients and services") }}. It's clear that {{ company_name }} has a strong foundation and commitment to excellence.</p>
+
+            <p>While exploring, I noticed a few areas where your online presence could be further enhanced to attract even more customers and streamline your operations. Based on our preliminary review, here are some observations and suggestions:</p>
+
+            {% if improvement_tips %}
+            <ul>
+                {% for tip in improvement_tips %}
+                <li>{{ tip }}</li>
+                {% endfor %}
+            </ul>
+            {% else %}
+            <p>We've identified some great opportunities for growth. Let's connect to discuss these in detail!</p>
+            {% endif %}
+
+            <p>{{ email_body }}</p>
+
+            <div class="button-container">
+                <a href="https://calendly.com/your-scheduling-link" class="button" target="_blank">Schedule a Quick Chat</a>
+                <!-- Replace with your actual scheduling link -->
+            </div>
+
+            <p>Looking forward to connecting soon.</p>
+            <p class="signature">Best regards,<br>{{ sender_name }}<br>{{ sender_company }}</p>
+        </div>
+        <div class="footer">
+            <p>You received this email because we believe {{ company_name }} could benefit from our services.</p>
+            <p>If you wish to stop receiving these emails, please reply to this message.</p>
+            <p>Reply to: <a href="mailto:{{ reply_to_email }}" style="color: #7f8c8d; text-decoration: underline;">{{ reply_to_email }}</a></p>
+        </div>
+    </div>
+</body>
+</html>
