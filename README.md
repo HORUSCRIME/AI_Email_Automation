@@ -38,7 +38,7 @@ Build an intelligent, automated application that:
 - Injects personalized tips and recipient details into a clean HTML layout.
 
 ### ✅ Email Delivery Integration
-- Sends emails via `smtplib` and SMTP credentials.
+- Sends emails via `sendgrid api` and sendgrid api credentials.
 - Configurable sender, reply-to, and test recipient in `.env`.
 
 ### ✅ Processing Log (SQLite Database)
@@ -57,7 +57,7 @@ Build an intelligent, automated application that:
 | Web Scraping           | BeautifulSoup + requests    |
 | LLM Integration        | Llama turbo free together.ai|
 | Email Generation       | Jinja2 + HTML Template      |
-| Email Sending          | Python `smtplib`            |
+| Email Sending          | Python `smtplib` `sendgrid api`|
 | File Uploads           | `python-multipart`, `openpyxl` |
 | Environment Mgmt       | `python-dotenv`             |
 | Storage                | SQLite3                     |
@@ -101,6 +101,8 @@ SENDER_EMAIL="noreply@yourdomain.com"
 REPLY_TO_EMAIL="your_reply_to_email@example.com"
 
 TOGETHER_API_KEY="place your together.ai key"
+SENDGRID_API_KEY="place your sendgrid api key"
+
 
 
 # Testing Recipient
