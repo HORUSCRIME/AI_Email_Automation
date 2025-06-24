@@ -28,7 +28,7 @@ Build an intelligent, automated application that:
   - Simulated issues (SEO, SSL, speed, mobile-friendliness, etc.)
 
 ### ✅ LLM-driven Personalized Content Generation
-- Uses `distilgpt2` (Hugging Face Transformers) locally to:
+- Uses `llama free turbo from together.ai` locally to:
   - Summarize business activity
   - Generate 3–5 tailored improvement suggestions
   - Craft a unique email with insights, congratulations, and CTA
@@ -55,7 +55,7 @@ Build an intelligent, automated application that:
 |------------------------|-----------------------------|
 | Backend Framework      | Python (FastAPI)            |
 | Web Scraping           | BeautifulSoup + requests    |
-| LLM Integration        | Hugging Face Transformers   |
+| LLM Integration        | Llama turbo free together.ai|
 | Email Generation       | Jinja2 + HTML Template      |
 | Email Sending          | Python `smtplib`            |
 | File Uploads           | `python-multipart`, `openpyxl` |
@@ -99,6 +99,9 @@ SMTP_PASSWORD="your_email_app_password"
 
 SENDER_EMAIL="noreply@yourdomain.com"
 REPLY_TO_EMAIL="your_reply_to_email@example.com"
+
+TOGETHER_API_KEY="place your together.ai key"
+
 
 # Testing Recipient
 TEST_RECEIVER_EMAIL="your_actual_test_recipient@example.com"
